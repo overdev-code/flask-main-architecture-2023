@@ -1,0 +1,7 @@
+Flask>=2.0.0
+flask-migrate>=4.0.5
+qrcode>=7.4.2
+pytz
+
+python-dotenv>=0.17.1
+Faker>=8.2.1

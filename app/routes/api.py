@@ -1,11 +1,11 @@
 from flask import Blueprint, request, jsonify, redirect, url_for
+from helpers.upload_files import UploadFiles
 
 from ..controller import contacts_controller
 from ..models.models import Contact
 
-
+upload_files = UploadFiles()
 api_scope = Blueprint("api", __name__)
-
 
 @api_scope.route('/contacts', methods=['GET'])
 def get_list():
@@ -28,6 +28,7 @@ def get_details(id_):
 @api_scope.route('/contacts', methods=['POST'])
 def create():
     data = request.form
+    upload_files.uploadImages(request.files['image'], "profile")
     print(data)
     contact = Contact(first_name=data["firstName"], last_name=data["lastName"],
                       address=data["address"], city=data["city"], state=data["state"],

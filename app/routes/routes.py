@@ -16,4 +16,4 @@ def home():
                   "description": "This is a simple page made for implement the basics concepts of Flask and Jinja2"
                   }
 
-    return render_template("home.html", nav=nav, **parameters)
+    return render_template("html/home.html", nav=nav, **parameters)

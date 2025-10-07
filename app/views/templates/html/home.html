@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'layouts/layout.html' %}
 
 {% block css %}
     <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet" />
@@ -13,6 +13,10 @@
 <div class="row justify-content-center main">
     <h3 class="text-secondary fw-bolder">NUEVO SOCIO</h3>
     <form class="main-form" method="POST" action="{{ url_for('api.create') }}" enctype="multipart/form-data">
+        <div class="form-row">
+            <label for="form-label">image</label>
+            <input type="file" name="image" accept="image/*" id="">
+        </div>
         <div class="form-row">
             <label class="form-label">Nombre</label>
             <input class="form-input" type="text" name="firstName" id="firstName" required />
